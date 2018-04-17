@@ -1,0 +1,18 @@
+#!groovy
+step([$class: 'GitHubPRStatusBuilder', statusMessage: [content: '${GITHUB_PR_COND_REF} run started']])
+
+pipeline {
+	agent any
+	stages {
+		stage('Build') {
+			steps {
+				echo 'Building'
+			}
+		}
+		stage('Test') {
+			steps {
+				echo 'testing'
+			}
+		}
+	}
+}
